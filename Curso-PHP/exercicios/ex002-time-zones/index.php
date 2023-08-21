@@ -12,9 +12,9 @@
         date_default_timezone_set("America/Sao_Paulo");
         
         echo "Hoje é dia " . date("d/m/y ");
-        echo "e o horário atual é " . date("g:i:s T --- ");
+        echo "e o horário atual é " . date("g:i:s T");
 
-        echo "Hoje é dia " . date("D/M/Y ");
+        echo "<br>Hoje é dia " . date("D/M/Y ");
         echo "e o horário atual é " . date("G:i:s T");
         ?>
 </body>
