@@ -11,16 +11,16 @@ body {
     text-align: center;
 }
 
+main,
 section {
-    min-width: 300px;
-    max-width: 700px;
     display: block;
     background-color: white;
-    color: black;
+    min-width: 300px;
+    max-width: 700px;
     width: 55vw;
     margin: auto;
-    padding: 10px 10px 20px 10px;
-    text-align: justify;
+    padding: 20px 10px 25px 10px;
+    color: black;
     border-radius: 10px;
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.411);
 }
@@ -34,12 +34,14 @@ input {
     width: 20vw;
     margin: auto;
     padding: 2px 0;
+    text-align: justify;
 }
 
-#enviar {
+input#enviar {
     margin-top: 20px;
     background-color: rgba(0, 255, 34, 0.801);
     font-weight: bold;
+    text-align: center;
 }
 
 footer {
