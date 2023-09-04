@@ -19,7 +19,6 @@ main {
     margin: auto;
     padding: 10px 10px 25px 10px;
     color: black;
-    font-size: 1.1em;
     border-radius: 10px;
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.411);
 }
