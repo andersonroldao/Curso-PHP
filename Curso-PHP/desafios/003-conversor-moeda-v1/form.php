@@ -15,7 +15,10 @@
     <main>
         <?php
             $cotacao = 5.05;
-            $real = $_GET["numero"] ?? 0;
+            $real = $_GET["numero"];
+            if (empty($real)) {
+                $real = 0;
+            }
             //$real = str_replace(',','.', $real);
             $dolar = $real / $cotacao;
 
@@ -28,7 +31,7 @@
             //Biblioteca intl (Internalization)
             $moeda = numfmt_create("pt_BR", NumberFormatter::CURRENCY);
 
-            echo "<p>Seus " . numfmt_format_currency($moeda, $real, "BRL") . " equivalem a <strong>" . numfmt_format_currency($moeda, $dolar, "USD") . "</strong>*</p>";
+            echo "<h2>Seus " . numfmt_format_currency($moeda, $real, "BRL") . " equivalem a <strong>" . numfmt_format_currency($moeda, $dolar, "USD") . "</strong>*</h2>";
         ?>
 
         <p id="nota">*Cotação fixa no valor de R$ 5,05.</p>
