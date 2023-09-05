@@ -14,31 +14,28 @@
 
     <main>
         <?php
-            $cotacao = 5.05;
+
+            $dataInicial = date("m-d-Y", strtotime("-7 days"));
+            $dataFinal = date("m-d-Y");
+            $url = 'https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarPeriodo(dataInicial=@dataInicial,dataFinalCotacao=@dataFinalCotacao)?@dataInicial=\'' . $dataInicial . '\'&@dataFinalCotacao=\'' . $dataFinal . '\'&$orderby=dataHoraCotacao%20desc&$format=json&$select=cotacaoCompra,dataHoraCotacao';
+            $dados = json_decode(file_get_contents($url), true);
+            $cotacao = $dados["value"][0]["cotacaoCompra"];
             $real = $_GET["numero"];
             if (empty($real)) {
                 $real = 0;
             }
-            //$real = str_replace(',','.', $real);
             $dolar = $real / $cotacao;
-
-            //Number Format
-            /* $dolar = number_format($dolar, 2,',',".");
-            $real = number_format($real, 2,',',".");
-
-            echo "Seus R$ $real, equivalem a US$ $dolar*<br>"; */
-
             //Biblioteca intl (Internalization)
             $moeda = numfmt_create("pt_BR", NumberFormatter::CURRENCY);
 
-            echo "<h2>Seus " . numfmt_format_currency($moeda, $real, "BRL") . " equivalem a <strong>" . numfmt_format_currency($moeda, $dolar, "USD") . "</strong>*</h2>";
+            echo "<h2>Seus " . numfmt_format_currency($moeda, $real, "BRL") . " equivalem a </h2><h2><strong>" . numfmt_format_currency($moeda, $dolar, "USD") . "</strong>*</h2>";
+
+            echo "<input type=\"button\" value=\"Voltar\" id=\"enviar\" onclick=\"javascript:history.go(-1)\"><br>";
+
+            echo "<p class=\"nota\">*Cotação obtida através do <a href=\"https://www.bcb.gov.br/estabilidadefinanceira/fechamentodolar\" target=\"_blank\">Banco Central do Brasil</a> no valor de <strong>$cotacao</strong>.</p>";
         ?>
 
-        <p class="nota">*Cotação obtida através do <a href="https://www.bcb.gov.br/estabilidadefinanceira/fechamentodolar" target="_blank">Banco Central do Brasil</a>.</p>
-
-        <p class="nota">*Para dias não úteis, assume-se a cotação do dia útil imediatamente anterior.</p>
-
-        <input type="button" value="Voltar" id="enviar" onclick="javascript:history.go(-1)">
+        <p class="nota">*Para dias não úteis, assume-se a cotação do dia útil imediatamente anterior.</p>        
     </main>
 </body>
 </html>
