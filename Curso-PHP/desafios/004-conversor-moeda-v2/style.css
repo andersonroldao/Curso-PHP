@@ -43,9 +43,12 @@ input {
     text-align: center;
 }
 
+p {
+    font-size: 1.1em;
+}
+
 p.nota {
     font-size: 0.7em;
-    font-weight: bold;
 }
 
 footer {
