@@ -19,7 +19,7 @@
                 if (empty($numero)) {
                     $numero = 0;
                 }
-                $inteiro = floor($numero);
+                $inteiro = (int) $numero;
                 $fracao = $numero - $inteiro;
 
                 echo "<p>Analisando o número " . number_format($numero, 3, ",", ".") . "<br>informado pelo usuário:</p>";
