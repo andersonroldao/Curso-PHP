@@ -6,7 +6,7 @@
 body {
     background-color: rgb(55, 111, 196);
     font-family: Arial, Helvetica, sans-serif;
-    color: white;    
+    color: white;
     text-align: center;
 }
 
@@ -41,19 +41,6 @@ form {
     border-radius: 10px;
 }
 
-section {
-    display: block;
-    background-color: white;
-    max-width: 400px;
-    min-width: 350px;
-    width: 45vw;
-    margin: 20px auto;
-    padding: 10px 10px 25px 10px;
-    color: black;
-    border-radius: 10px;
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.411);
-}
-
 #enviar {
     background-color: rgba(0, 255, 34, 0.801);
     margin-top: 20px;
@@ -68,6 +55,43 @@ h2 {
 
 p.nota {
     font-size: 0.7em;
+}
+
+section {
+    display: block;
+    background-color: white;
+    max-width: 400px;
+    min-width: 350px;
+    width: 45vw;
+    margin: 20px auto;
+    padding: 10px 10px 25px 10px;
+    color: black;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.411);
+}
+
+table.divisao {
+    margin: auto;
+}
+
+table.divisao td{    
+    padding: 20px;
+    font-size: 1.5em;
+}
+
+table.divisao tr:nth-child(1) td:nth-child(2) {
+    border-bottom: 3px solid black;
+    border-left: 3px solid black;
+    padding: 0px 40px;
+}
+
+table.divisao tr:nth-child(2) td:nth-child(2) {
+    border-left: 3px solid black;
+    padding: 0px 40px;
+}
+
+table.divisao tr:nth-child(2) td:nth-child(1) {
+    text-decoration: underline;
 }
 
 footer {
