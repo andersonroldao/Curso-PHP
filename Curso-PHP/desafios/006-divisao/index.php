@@ -13,12 +13,12 @@
     </header>
 
     <?php 
-        $dividendo = $_GET['dividendo'];
+        $dividendo = $_GET["dividendo"] ?? 0;
         if ($dividendo == "") {
             $dividendo = 0;
         };
 
-        $divisor = $_GET['divisor'];
+        $divisor = $_GET["divisor"] ?? 1;
         if ($divisor == "") {
             $divisor = 1;
         };
@@ -27,7 +27,7 @@
     <main>
         <form action="<?=$_SERVER['PHP_SELF']?>" method="get">
             <label for="dividendo">Dividendo</label>
-            <input type="number" name="dividendo" id="iddividendo" min="1" value="<?=$dividendo?>">
+            <input type="number" name="dividendo" id="iddividendo" min="0" value="<?=$dividendo?>">
 
             <label for="divisor">Divisor</label>
             <input type="number" name="divisor" id="iddivisor" min="1" value="<?=$divisor?>">
@@ -40,20 +40,21 @@
         <h2>Estrutura da Divisão</h2>
 
         <?php 
-            $dividendo = $_GET['dividendo'];
-            if ($dividendo == "") {
-                $dividendo = 0;
-            };
-
-            $divisor = $_GET['divisor'];
-            if ($divisor == "") {
-                $divisor = 1;
-            };
-
             $divisao = intdiv($dividendo, $divisor);
             $resto = $dividendo % $divisor;
-            echo "O dividendo é $dividendo, o divisor é $divisor, o resultado da divisão é $divisao e o resto é $resto";
         ?>
+
+        <table class="divisao">
+            <tr id="tr1">
+                <td><?=$dividendo?></td>
+                <td><?=$divisor?></td>
+            </tr>
+
+            <tr>
+                <td><?=$resto?></td>
+                <td><?=$divisao?></td>
+            </tr>                
+        </table>
     </section>
 </body>
 </html>
