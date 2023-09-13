@@ -13,13 +13,13 @@
     </header>
 
     <?php 
+        $salariomin = 1320;
         $moeda = numfmt_create("pt_BR", NumberFormatter::CURRENCY);
         $salario = $_GET["numero"];
         if (empty($salario)) {
-            $salario = 0;
+            $salario = $salariomin;
         }
 
-        $salariomin = 1320;
     ?>
 
     <main>
@@ -31,7 +31,7 @@
 
             <input type="submit" value="Calcular" id="enviar">
 
-            <p>*Considerendo o salário mínimo de <strong>R$ 1.320,00.</strong></p>
+            <p>*Considerendo o salário mínimo de <strong><?=numfmt_format_currency($moeda, $salariomin, "BRL")?></strong></p>
         </form>
     </main>
 
@@ -40,7 +40,7 @@
 
         <?php
             $divisao = intdiv($salario, $salariomin);
-            $resto = $salario - ($salariomin*$divisao);
+            $resto = $salario - ($salariomin * $divisao);
 
             echo "<p>Quem recebe um salário de " . numfmt_format_currency($moeda, $salario, "BRL") . " ganha <strong>$divisao salário(s) mínimo(s)*</strong> + " . numfmt_format_currency($moeda, $resto, "BRL") . ".</p>";
         ?>
