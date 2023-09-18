@@ -14,7 +14,7 @@
 
     <main>
         <?php 
-            $numero = $_GET["numero"];
+            $numero = $_GET["numero"] ?? 0;
             if ($numero == "") {
                 $numero = 0;
             }
