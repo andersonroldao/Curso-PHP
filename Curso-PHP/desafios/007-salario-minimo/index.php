@@ -15,7 +15,7 @@
     <?php 
         $salariomin = 1320;
         $moeda = numfmt_create("pt_BR", NumberFormatter::CURRENCY);
-        $salario = $_GET["numero"];
+        $salario = $_GET["numero"] ?? 0;
         if (empty($salario)) {
             $salario = $salariomin;
         }
