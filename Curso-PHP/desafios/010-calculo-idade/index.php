@@ -14,17 +14,18 @@
 
     <main>
         <?php 
-            $nascimento = $_GET["nascimento"] ?? 0;
-            $ano = $_GET["ano"] ?? date("Y");
+            $anoAtual = date("Y");
+            $nascimento = $_GET["nascimento"] ?? 0;            
+            $ano = $_GET["ano"] ?? $anoAtual;
         ?>
 
         <form action="<?=$_SERVER["PHP_SELF"]?>" method="get">
-            <h2>Calculando a sua idade</h2>
+            <h2>Calculando idade</h2>
 
-            <label for="nascimento">Em que ano você nasceu?</label>
-            <input type="number" name="nascimento" id="idnascimento" min="0" required value="<?=$nascimento?>">
+            <label for="nascimento">Qual a data de nascimento?</label>
+            <input type="number" name="nascimento" id="idnascimento" min="0" max="<?=$ano?>" required value="<?=$nascimento?>">
 
-            <label for="ano">Quer saber sua idade em que ano? (atualmente estamos em <strong><?=date("Y");?></strong>)</label>
+            <label for="ano">Quer saber a idade em que ano? (atualmente estamos em <strong><?=$anoAtual?></strong>)</label>
             <input type="number" name="ano" id="ano" min="1" required value="<?=$ano?>">
 
             <input type="submit" value="Qual será minha idade?" id="enviar">
@@ -36,8 +37,12 @@
 
         <?php
             $idade = $ano - $nascimento;
-
-            echo "<p>Quem nasceu em $nascimento vai ter<strong> $idade anos</strong> em $ano!</p>";
+            
+            if ($idade == 1) {
+                echo "<p>Quem nasceu em $nascimento vai ter<strong> $idade ano</strong> em $ano!</p>";  
+            } else {
+                echo "<p>Quem nasceu em $nascimento vai ter<strong> $idade anos</strong> em $ano!</p>"; 
+            }                   
         ?>
     </section>
 </body>
