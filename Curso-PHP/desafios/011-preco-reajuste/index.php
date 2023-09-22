@@ -21,10 +21,10 @@
 
         <form action="<?=$_SERVER["PHP_SELF"]?>" method="get">
             <label for="valor">Preço do Produto</label>
-            <input type="number" name="valor" id="idvalor" min="0" required autofocus value="<?=$valor?>">
+            <input type="number" name="valor" id="idvalor" min="0" step="0.01" required autofocus value="<?=$valor?>">
 
-            <label for="reajuste">Qual será o percentual de reajuste? (<strong><spam id="p">50</spam>%</strong>)</label>
-            <input type="range" name="reajuste" id="idreajuste" min="0" max="100" value="<?$reajuste?>" oninput="mudaValor()">
+            <label for="reajuste">Qual será o percentual de reajuste? (<strong><spam id="porcentagem"><?=$reajuste?></spam>%</strong>)</label>
+            <input type="range" name="reajuste" id="idreajuste" min="0" max="100" value="<?=$reajuste?>" oninput="mudaValor()" onchange="mudaValor()">
 
             <input type="submit" value="Reajustar" id="enviar">
         </form>
@@ -42,7 +42,7 @@
 
     <script>
         function mudaValor() {
-            p.innerText = idreajuste.value;
+            porcentagem.innerText = idreajuste.value;
         }
     </script>
 </body>
