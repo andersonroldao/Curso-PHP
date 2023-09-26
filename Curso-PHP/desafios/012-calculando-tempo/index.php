@@ -19,7 +19,7 @@
 
         <form action="<?=$_SERVER["PHP_SELF"]?>" method="get">
             <label for="numero">Qual é o total de segundos?</label>
-            <input type="number" name="numero" id="idnumero" min="0" required value="<?=$numero?>">
+            <input type="number" name="numero" id="idnumero" min="0" autofocus required value="<?=$numero?>">
 
             <input type="submit" value="Calcular" id="enviar">
         </form>
@@ -28,7 +28,7 @@
     <section>
         <h2>Cálculo de Tempo</h2>
 
-        <?php 
+        <?php
             $semanas = intdiv($numero, 604800);
             $dias = intdiv($numero % 604800, 86400);
             $horas = intdiv($numero % 86400, 3600);
@@ -37,7 +37,7 @@
         ?>
 
         <p>
-            Analisando o valor, temos que <strong><?=number_format($numero, 0, ",", ".")?> segundos<strong>, equivalem a:
+            Analisando o valor, temos que <strong><?=number_format($numero, 0, ",", ".")?> segundos</strong>, equivalem a:
         </p>
 
         <ul>
