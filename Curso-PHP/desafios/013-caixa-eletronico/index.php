@@ -20,16 +20,16 @@
 
         <form action="<?=$_SERVER["PHP_SELF"]?>" method="get">
             <label for="num">Qual é o valor que você deseja sacar? (R$)*</label>
-            <input type="number" name="num" id="idnum" min="5"  max="2000"  step="5" autofocus required value="<?=$num?>">
+            <input type="number" name="num" id="idnum" min="5" max="5000" step="5" autofocus required value="<?=$num?>">
 
-            <p id="nota">*Notas disponíveis: R$ 100, R$ 50, R$ 10 e R$ 5</p>
+            <p id="nota"><sup>*</sup>Notas disponíveis: R$ 100, R$ 50, R$ 10 e R$ 5</p>
 
             <input type="submit" value="Sacar" id="enviar">
         </form>
     </main>
 
     <section>
-        <h2>Saque de <?=numfmt_format_currency($moeda, $num, "BRL")?></h2>
+        <h2>Saque de <?=numfmt_format_currency($moeda, $num, "BRL")?> realizado</h2>
 
         <?php
             $nota100 = intdiv($num, 100);
@@ -43,10 +43,18 @@
         </p>
 
         <ul>
-            <li>  x<?=$nota100?></li>
-            <li>  x<?=$nota50?></li>
-            <li>  x<?=$nota10?></li>
-            <li>  x<?=$nota5?></li>
+            <li>
+                <img src="../013-caixa-eletronico/img/100_Brazil_real_Second_Obverse.jpg" class="notas" alt="Nota de cem reais"> x<?=$nota100?>
+            </li>
+            <li>
+                <img src="../013-caixa-eletronico/img/50_Brazil_real_Second_Obverse.jpg" class="notas" alt="Nota de cinquenta reais"> x<?=$nota50?>
+            </li>
+            <li>
+                <img src="../013-caixa-eletronico/img/10_Brazil_real_Second_Obverse.jpg" class="notas" alt="Nota de dez reais"> x<?=$nota10?>
+            </li>
+            <li>
+                <img src="../013-caixa-eletronico/img/5_Brazil_real_Second_Obverse.jpg" class="notas" alt="Nota de cinco reais"> x<?=$nota5?>
+            </li>
         </ul>
     </section>
 </body>
