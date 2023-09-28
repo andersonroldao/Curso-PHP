@@ -83,8 +83,12 @@ ul {
 }
 
 li {
-    margin: 0px 28.5% 0 37.5%;
+    margin: 0px 26% 0 35%;
     text-align: start;
+}
+
+.notas {
+    width: 100px;
 }
 
 footer {
